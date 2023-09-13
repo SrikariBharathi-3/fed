@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <style>
+            .container{
+                width:350px;
+                height:250px;
+                padding:10px;
+                border:1px solid#aaaaaa;
+            }
+            </style>
+             <script>
+                function allowdrop(ev){
+                    ev.preventDefault();
+                }
+                function drag(ev){
+                    ev.dataTransfer.setData("text/html",ev.target.id);
+                }
+                function drop(ev){
+                    ev.preventDefault();
+                    var data=ev.dataTransfer.getData("text/html");
+                    ev.target.appendChild(document.getElementById(data));
+                }
+            </script>
+            
+    </head>
+    <body>
+     <p> drag vvit logo into the rectangle:</p>
+     <div id="div1" class="container" ondrop="drop(event)" ondragover="allowdrop(event)"></div>
+    <br>
+    <img id="drag1" src="https://tse4.mm.bing.net/th?id=OIP.8M_Ec9V-QdIW24tPmt3qVgAAAA&pid=Api&P=0&h=180" alt="vvit logo"  draggable="true" ondragstart="drag(event)"/>
+    </body>
+    </html>
